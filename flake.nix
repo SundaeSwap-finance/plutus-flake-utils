@@ -143,7 +143,10 @@
             nativeBuildInputs = [
               pkgs.cabal-install
               pkgs.ghcid
-              (pkgs.haskell-language-server.override{ supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ]; })
+              (pkgs.haskell-language-server.override{
+                dynamic=true; # dynamically linked haskell-language-server, to make template haskell definitions visible to it. info: https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#static-binaries
+                supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ];
+              })
             ];
           } // extraShell;
           inherit sha256map;
