@@ -151,6 +151,7 @@
             nativeBuildInputs = [
               pkgs.cabal-install
               pkgs.ghcid
+              (pkgs.haskell-language-server.override{ supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ]; })
             ];
           } // extraShell;
           inherit sha256map;
