@@ -83,6 +83,23 @@
         "type": "github"
       }
     },
+    "chap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683268896,
+        "narHash": "sha256-Bf2XIbQ3YCYPbkySLlPmmxRdEQeZMqTM1mA/VQvB9sc=",
+        "owner": "input-output-hk",
+        "repo": "cardano-haskell-packages",
+        "rev": "b5da84a9711693e408ec94ad17fbb02883a3b87b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "ref": "repo",
+        "repo": "cardano-haskell-packages",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1644229661,
@@ -313,6 +330,7 @@
     },
     "root": {
       "inputs": {
+        "chap": "chap",
         "flake-utils": "flake-utils",
         "haskell-nix": "haskell-nix",
         "iohk-nix": "iohk-nix",

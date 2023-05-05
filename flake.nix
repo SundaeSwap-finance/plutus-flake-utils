@@ -17,6 +17,10 @@
       url = "github:input-output-hk/iohk-nix";
       flake = false;
     };
+    chap = {
+      url = "github:input-output-hk/cardano-haskell-packages?ref=repo";
+      flake = false;
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
     , haskell-nix
     , iohk-nix
     , flake-utils
+    , chap
     , ...
     }:
     let
@@ -72,6 +77,9 @@
         , extraGHCOptions ? { }
         , withHoogle ? true
         , exactDeps ? true
+        , inputMap ? {
+          "https://input-output-hk.github.io/cardano-haskell-packages" = chap;
+        }
         , ...
         }:
         let
@@ -154,6 +162,7 @@
           inherit checkMaterialization;
           inherit caller;
           configureArgs = builtins.concatStringsSep " " configureArgs;
+          inherit inputMap;
         };
     in
     rec {
