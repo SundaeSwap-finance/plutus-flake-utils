@@ -75,9 +75,9 @@
         , extraGHCOptions ? { }
         , withHoogle ? true
         , exactDeps ? true
-        /*, inputMap ? {
+        , inputMap ? {
           "https://input-output-hk.github.io/cardano-haskell-packages" = chap;
-        }*/
+        }
         , ...
         }:
         let
@@ -159,7 +159,7 @@
           inherit materialized;
           inherit checkMaterialization;
           configureArgs = builtins.concatStringsSep " " configureArgs;
-          /*inherit inputMap;*/
+          inherit inputMap;
         };
     in
     rec {
