@@ -14,3 +14,19 @@ repository cardano-haskell-packages
 allow-newer:
     playground-common:recursion-schemes
   , size-based:template-haskell
+
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/cardano-base.git
+  subdir:
+    base-deriving-via
+    binary
+    binary/test
+    cardano-crypto-class
+    cardano-crypto-praos
+    cardano-crypto-tests
+    measures
+    orphans-deriving-via
+    slotting
+    strict-containers
+  tag: 07d40428a55b0a80ec49126f09d8e4d8191578b3
