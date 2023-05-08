@@ -10,7 +10,6 @@
 
     haskell-nix = {
       url = "github:input-output-hk/haskell.nix";
-      inputs.nixpkgs.follows = "haskell-nix/nixpkgs-2111";
     };
 
     iohk-nix = {
@@ -77,9 +76,9 @@
         , extraGHCOptions ? { }
         , withHoogle ? true
         , exactDeps ? true
-        , inputMap ? {
+        /*, inputMap ? {
           "https://input-output-hk.github.io/cardano-haskell-packages" = chap;
-        }
+        }*/
         , ...
         }:
         let
@@ -162,7 +161,7 @@
           inherit checkMaterialization;
           inherit caller;
           configureArgs = builtins.concatStringsSep " " configureArgs;
-          inherit inputMap;
+          /*inherit inputMap;*/
         };
     in
     rec {
