@@ -443,11 +443,11 @@
     "iohk-nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1641816326,
-        "narHash": "sha256-QDkAJPQR1du6lukHqb2vSJ3hVVGEZDs5x9GCbwSQyKU=",
+        "lastModified": 1683264256,
+        "narHash": "sha256-5ddG5PDwSPFdrtyxhzBZFh/10YEAHRqeD8ts6NJamVg=",
         "owner": "input-output-hk",
         "repo": "iohk-nix",
-        "rev": "734f87a23504f7d12c7fee1c574fc7d815139dea",
+        "rev": "18d9bc9d09ab73df58efa13a3d470b211c92f2ee",
         "type": "github"
       },
       "original": {
