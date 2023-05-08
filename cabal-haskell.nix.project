@@ -28,5 +28,4 @@ source-repository-package
     measures
     orphans-deriving-via
     slotting
-    strict-containers
   tag: 07d40428a55b0a80ec49126f09d8e4d8191578b3
