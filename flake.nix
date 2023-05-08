@@ -179,11 +179,7 @@
           dynamic = project.dynamic.flake { };
         };
 
-        devShell = flake.dynamic.devShell.overrideAttrs (old: {
-          nativeBuildInputs = old.nativeBuildInputs or [] ++ [
-            (project.dynamic.hsPkgs.cardano-cli.getComponent "exe:cardano-cli")
-          ];
-        });
+        devShell = flake.dynamic.devShell;
       };
     } //
     {
