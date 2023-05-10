@@ -101,11 +101,11 @@
     "chap": {
       "flake": false,
       "locked": {
-        "lastModified": 1683268896,
-        "narHash": "sha256-Bf2XIbQ3YCYPbkySLlPmmxRdEQeZMqTM1mA/VQvB9sc=",
+        "lastModified": 1683730200,
+        "narHash": "sha256-F2jCz8dFEpdEz0J6t7cqfHuL4zfRzgIKKubkYxpsWWc=",
         "owner": "input-output-hk",
         "repo": "cardano-haskell-packages",
-        "rev": "b5da84a9711693e408ec94ad17fbb02883a3b87b",
+        "rev": "8132844c9956a00d27838b7fec2a1f7adea47504",
         "type": "github"
       },
       "original": {
