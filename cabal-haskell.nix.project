@@ -119,3 +119,11 @@ source-repository-package
       libs/small-steps-test
       libs/non-integral
     --sha256: 1jg1h05gcms119mw7fz798xpj3hr5h426ga934vixmgf88m1jmfx
+
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps
+  tag: c4f4dc5fedd5b1804781abb7db0fb5a553e24ecb
+  subdir:
+    plutus-ledger
+  --sha256: 15xkji6fnya0brd1ps4w4yxnhdfw2sv7dha3zqg0ljjnskd5044z
