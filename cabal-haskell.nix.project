@@ -91,37 +91,6 @@ source-repository-package
       core
     --sha256: 129r5kyiw10n2021bkdvnr270aiiwyq58h472d151ph0r7wpslgp
 
--- from plutus-apps
-source-repository-package
-    type: git
-    location: https://github.com/input-output-hk/cardano-ledger
-    tag: da3e9ae10cf9ef0b805a046c84745f06643583c2
-    subdir:
-      eras/alonzo/impl
-      eras/alonzo/test-suite
-      eras/babbage/impl
-      eras/babbage/test-suite
-      eras/byron/chain/executable-spec
-      eras/byron/crypto
-      eras/byron/crypto/test
-      eras/byron/ledger/executable-spec
-      eras/byron/ledger/impl
-      eras/byron/ledger/impl/test
-      eras/shelley/impl
-      eras/shelley/test-suite
-      eras/shelley-ma/impl
-      eras/shelley-ma/test-suite
-      libs/cardano-ledger-core
-      libs/cardano-ledger-pretty
-      libs/cardano-protocol-tpraos
-      libs/cardano-data
-      libs/vector-map
-      libs/set-algebra
-      libs/small-steps
-      libs/small-steps-test
-      libs/non-integral
-    --sha256: 1jg1h05gcms119mw7fz798xpj3hr5h426ga934vixmgf88m1jmfx
-
 source-repository-package
   type: git
   location: https://github.com/input-output-hk/plutus-apps
