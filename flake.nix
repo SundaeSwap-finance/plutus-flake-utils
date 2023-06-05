@@ -122,6 +122,17 @@
             chmod u+w $out/cabal.project
             cat ${self}/cabal-haskell.nix.project >> $out/cabal.project
           '';
+          #hls = (pkgs.haskell-nix.hackage-package {
+          #  src = pkgs.haskell-nix.sources."hls-1.10";
+          #  name = "haskell-language-server";
+          #   inherit compiler-nix-name;
+          #   #name = "cabal-install"
+          #   #version = "3.2.0.0"
+          # });
+          #hls = (pkgs.haskell-nix.hackage-package { src = pkgs.haskell-nix.sources."hls-1.10"; name = "haskell-language-server"; compiler-nix-name = "ghc927"; });
+          #(outputs.pkgs "aarch64-darwin").dynamic.haskell-nix
+          hnix-dyn = (nixpkgsFor false system).haskell-nix;
+          hls = (hnix-dyn.hackage-package { src = hnix-dyn.sources."hls-1.10"; name = "haskell-language-server"; compiler-nix-name = "ghc927"; });
         in
         pkgs.haskell-nix.cabalProject' {
           src = gitignore fakeSrc.outPath;
@@ -148,13 +159,26 @@
             inherit withHoogle;
             inherit exactDeps;
 
-            nativeBuildInputs = [
-              pkgs.cabal-install
+            tools = {
+              #haskell-language-server = "latest";
+              #haskell-language-server = { src = pkgs.haskell-nix.sources."hls-1.10"; }; # supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ]; };
+              cabal = "3.10.1.0";
+            };
+            buildInputs = [
+              hls.components.library
+              (builtins.trace "${hls.components.exes.haskell-language-server.out}" hls.components.exes.haskell-language-server)
+              #hls.components.exes.haskell-language-server-wrapper
+            ];
+            nativeBuildInputs =
+              [
+              #pkgs.cabal-install
+              # not sure if we should even do hackage-package here vs just cabalProject' since we're providing src arg anyways
               pkgs.ghcid
-              (pkgs.haskell-language-server.override{
-                dynamic=true; # dynamically linked haskell-language-server, to make template haskell definitions visible to it. info: https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#static-binaries
-                supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ];
-              })
+              pkgs.pkg-config
+              #(pkgs.haskell-language-server.override{
+              #  dynamic=true; # dynamically linked haskell-language-server, to make template haskell definitions visible to it. info: https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#static-binaries
+              #  supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ];
+              #})
             ];
           } // extraShell;
           inherit sha256map;
