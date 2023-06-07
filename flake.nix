@@ -132,7 +132,8 @@
           #hls = (pkgs.haskell-nix.hackage-package { src = pkgs.haskell-nix.sources."hls-1.10"; name = "haskell-language-server"; compiler-nix-name = "ghc927"; });
           #(outputs.pkgs "aarch64-darwin").dynamic.haskell-nix
           hnix-dyn = (nixpkgsFor false system).haskell-nix;
-          hls = (hnix-dyn.hackage-package { src = hnix-dyn.sources."hls-1.10"; name = "haskell-language-server"; compiler-nix-name = "ghc927"; });
+          # awkward usage of hackage-package completely unrelated to hackage when cabalProject' {...} .hsPkgs.haskell-language-server.components can mostly replace
+          hls = (hnix-dyn.hackage-package rec { src = hnix-dyn.sources."hls-2.0"; cabalProject = builtins.readFile (src + "/cabal.project"); name = "haskell-language-server"; compiler-nix-name = "ghc927"; });
         in
         pkgs.haskell-nix.cabalProject' {
           src = gitignore fakeSrc.outPath;
