@@ -161,13 +161,13 @@
             inherit exactDeps;
 
             tools = {
-              #haskell-language-server = "latest";
+              haskell-language-server = "latest";
               #haskell-language-server = { src = pkgs.haskell-nix.sources."hls-1.10"; }; # supportedGhcVersions = [ (nixpkgs.lib.removePrefix "ghc" compiler-nix-name) ]; };
               cabal = "3.10.1.0";
             };
             buildInputs = [
-              hls.components.library
-              (builtins.trace "${hls.components.exes.haskell-language-server.out}" hls.components.exes.haskell-language-server)
+              #hls.components.library
+              #(builtins.trace "${hls.components.exes.haskell-language-server.out}" hls.components.exes.haskell-language-server)
               #hls.components.exes.haskell-language-server-wrapper
             ];
             nativeBuildInputs =
